@@ -15,6 +15,7 @@
   <script src="js/bootstrap.min.js"  type="text/javascript"></script>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
  <!--alert message-->
+ <!-- if the password is wrong for student sigin you will get the error message-->
 <?php if(@$_GET['w'])
 {echo'<script>alert("'.@$_GET['w'].'");</script>';}
 ?>
@@ -30,6 +31,7 @@ include_once 'dbConnection.php';
 <div class="col-lg-6" >
 <span class="logo"></span></div>
 <div class="col-md-4 col-md-offset-2">
+  <!-- if the password is not correct we are taking the user back to the index.php-->
  <?php
  include_once 'dbConnection.php';
 session_start();
@@ -83,7 +85,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
  
 
 
-
+<!-- Creating all the quiz table by querying to the database and showing in the table-->
 <!--home start-->
 <?php if(@$_GET['q']==1) {
 
@@ -116,7 +118,8 @@ $c=0;
 echo '</table></div>';
 
 }?>
-<!----quiz reading portion starts--->
+
+<!----for displaying quiz infor on clicking of file image in student dashboard--->
 
 <?php if(@$_GET['fid']) {
 echo '<br />';
@@ -131,13 +134,14 @@ while($row = mysqli_fetch_array($result)) {
   $intro = $row['intro'];
   
 echo '<div class="panel"<a title="Back to Archive" href="update.php?q1=2"><b><span class="glyphicon glyphicon-level-up" aria-hidden="true"></span></b></a><h2 style="text-align:center; margin-top:-15px;font-family: "Ubuntu", sans-serif;"><b>'.$title.'</b></h1>';
- echo '<div class="mCustomScrollbar" data-mcs-theme="dark" style="margin-left:10px;margin-right:10px; max-height:450px; line-height:35px;padding:5px;"><span style="line-height:35px;padding:5px;">-&nbsp;<b>DATE:</b>&nbsp;'.$date.'</span>
+ echo '<div class="mCustomScrollbar" data-mcs-theme="dark" style="margin-left:10px;margin-right:10px; max-height:450px; line-height:35px;padding:5px;"><span style="line-height:35px;padding:5px;">&nbsp;<b>DATE:</b>&nbsp;'.$date.'</span>
 <span style="line-height:35px;padding:5px;"></span><br />'.$intro.'</div></div>';}
 }?>
 <!--quiz reading portion closed-->
 
-<!--<span id="countdown" class="timer"></span>
-<script>
+<!-- quiz timer starts here-->
+<span id="countdown" class="timer"></span>
+<!-- <script>
 var seconds = 40;
     function secondPassed() {
     var minutes = Math.round((seconds - 30)/60);
@@ -154,11 +158,18 @@ var seconds = 40;
     }
     }
 var countdownTimer = setInterval('secondPassed()', 1000);
-</script>-->
+</script>--> 
 
 <!--home closed-->
 
-<!--quiz start-->
+
+
+
+
+
+
+
+<!--Main quiz start-->
 <?php
 if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) {
 $eid=@$_GET['eid'];
@@ -173,6 +184,7 @@ $qid=$row['qid'];
 echo '<b>Question &nbsp;'.$sn.'&nbsp;::<br />'.$qns.'</b><br /><br />';
 }
 $q=mysqli_query($con,"SELECT * FROM options WHERE qid='$qid' " );
+//sending data to update.php for storing the data to the database 
 echo '<form action="update.php?q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST"  class="form-horizontal">
 <br />';
 
@@ -185,6 +197,21 @@ echo'<input type="radio" name="ans" value="'.$optionid.'">'.$option.'<br /><br /
 echo'<br /><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Submit</button></form></div>';
 //header("location:dash.php?q=4&step=2&eid=$id&n=$total");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //result display
 if(@$_GET['q']== 'result' && @$_GET['eid']) 
 {
@@ -214,9 +241,15 @@ echo '</table></div>';
 
 }
 ?>
-<!--quiz end-->
+<!--quiz end-->\
+
+
+
+
+
+
+<!-- history display start here-->
 <?php
-//history start
 if(@$_GET['q']== 2) 
 {
 $q=mysqli_query($con,"SELECT * FROM history WHERE email='$email' ORDER BY date DESC " )or die('Error197');

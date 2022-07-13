@@ -17,6 +17,7 @@
 {echo'<script>alert("'.@$_GET['w'].'");</script>';}
 ?>
 <script>
+// new signin form for new user which uses sign.php to store the credentials of newly created user
 function validateForm() {var y = document.forms["form"]["name"].value;  var letters = /^[A-Za-z]+$/;if (y == null || y == "") {alert("Name must be filled out.");return false;}var z =document.forms["form"]["college"].value;if (z == null || z == "") {alert("college must be filled out.");return false;}var x = document.forms["form"]["email"].value;var atpos = x.indexOf("@");
 var dotpos = x.lastIndexOf(".");if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {alert("Not a valid e-mail address.");return false;}var a = document.forms["form"]["password"].value;if(a == null || a == ""){alert("Password must be filled out");return false;}if(a.length<5 || a.length>25){alert("Passwords must be 5 to 25 characters long.");return false;}
 var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords must match.");return false;}}
@@ -55,12 +56,13 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 }
 
 
-
+.row
   {
-      font: 400 15px Lato, sans-serif;
+      font: 400 15px Arial, sans-serif;
       line-height: 1.8;
       color: #818181;
   }
+  /* Our Values */
   h2 {
       font-size: 24px;
       text-transform: uppercase;
@@ -86,15 +88,20 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 .clear{
   clear:both;
 }
-  .jumbotron {
-      background-color: #f4511e;
-      color: #fff;
-      padding: 100px 25px;
-      font-family: Montserrat, sans-serif;
-  }
+.jumbotron {
+
+  background-image: url("./images/onlineExaminationHomePageImage.jpg");
+  background-size: cover;
+  /* background-color: #f4511e; */  
+  color: #0D0D0D;
+  padding: 100px 25px;
+  margin-bottom 0px
+  font-family: Montserrat, sans-serif;
+}
   .container-fluid {
       padding: 60px 50px;
   }
+  /* background color of our values */
   .bg-grey {
       background-color: #f6f6f6;
   }
@@ -102,19 +109,20 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
       color: #f4511e;
       font-size: 50px;
   }
+  /* globo logo */  
   .logo {
-      color: #f4511e;
+      color: #F32708;
       font-size: 200px;
   }
  
   .thumbnail {
-      padding: 0 0 15px 0;
+      padding: 0 0 20px 0;
       border: none;
       border-radius: 0;
   }
   .thumbnail img {
-      width: 100%;
-      height: 100%;
+      width: 50%;
+      height: 50%;
       margin-bottom: 10px;
   }
   .carousel-control.right, .carousel-control.left {
@@ -189,7 +197,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
       font-family: Montserrat, sans-serif;
   }
   .navbar li a, .navbar .navbar-brand {
-      color: #f4511e !important;
+      color: #0D0D0D   !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
       color: #f4511e !important;
@@ -248,6 +256,163 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
         font-size: 150px;
     }
   }
+  /* marquee tag css starts  */
+  .marquee-container{
+    max-width: 100%;
+    margin: 15px auto;
+    overflow: hidden;
+}
+.Marquee {
+  background: -webkit-linear-gradient(225deg, #F1948A , #B03A2E);
+  background: -moz-linear-gradient(225deg, #F1948A, #B03A2E);
+  background: -o-linear-gradient(225deg, #F1948A, #B03A2E);
+  background: -ms-linear-gradient(225deg, #F1948A, #B03A2E);
+  background: linear-gradient(-135deg, #F1948A, #B03A2E);
+  width: 100vw;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1em;
+  color: #fff;
+  font-weight: 200;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  overflow: hidden;
+    
+}
+  .Marquee-content {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-animation: marquee 10s linear infinite running;
+  -moz-animation: marquee 10s linear infinite running;
+  -o-animation: marquee 10s linear infinite running;
+  -ms-animation: marquee 10s linear infinite running;
+  animation: marquee 10s linear infinite running;
+}
+
+.Marquee-content:hover {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  -ms-animation-play-state: paused;
+  animation-play-state: paused;
+}
+.Marquee-tag {
+  width: 200px;
+  margin: 0 0.5em;
+  padding: 0.5em;
+  background: rgba(255,255,255,0.1);
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.Marquee-tag:hover {
+  background: rgba(255,255,255,0.5);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+@-moz-keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+  }
+}
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+  }
+}
+@-o-keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+  }
+}
+@keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+  }
+}
   </style>
 
 
@@ -289,14 +454,24 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="jumbotron text-center">
   <h1>Online Examination</h1> 
   <p>e-EXAMINATION</p> 
-  <!--  form>
-    <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Subscribe</button>
-      </div>
-    </div>
-  </form -->
+</div>
+<div class="marquee-container">
+<div class="Marquee">
+  <div class="Marquee-content">
+    <div class="Marquee-tag">Configuration of question types with different difficulty levels</div>
+    <div class="Marquee-tag">Trusted by Clients in 15+ Countries.</div>
+    <div class="Marquee-tag">Experience in Managing Large Scaled Proctored Exams.</div>
+    <div class="Marquee-tag">Successfully conducted 100,000 +  concurrent exam sessions.</div>
+    <div class="Marquee-tag">CERT-IN Certified for Software Security.</div>
+    <div class="Marquee-tag">Useful tool for conducting assessments along with remote proctoring..</div>
+    <div class="Marquee-tag">Configuration of question types with different difficulty levels</div>
+    <div class="Marquee-tag">Trusted by Clients in 15+ Countries.</div>
+    <div class="Marquee-tag">Experience in Managing Large Scaled Proctored Exams.</div>
+    <div class="Marquee-tag">Successfully conducted 100,000 +  concurrent exam sessions.</div>
+    <div class="Marquee-tag">CERT-IN Certified for Software Security.</div>
+    <div class="Marquee-tag">Useful tool for conducting assessments along with remote proctoring..</div>
+  </div>
+</div>
 </div>
 
 
@@ -307,31 +482,31 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title"><span style="color:#f4511e;font-family:Montserrat, sans-serif; font-size: 20px !important;letter-spacing: 4px; "><b>LOGIN -ADMIN</b></span></h4>
+        <h4 class="modal-title"><span style="color:#0D0D0D;font-family:Montserrat, sans-serif; font-size: 20px !important;letter-spacing: 4px; "><b>LOGIN -ADMIN</b></span></h4>
       </div>
       <div class="modal-body title1">
-<div class="row">
-<div class="col-md-3"></div>
-<div class="col-md-6">
-<form role="form" method="post" action="head.php?q=index.php">
-<div class="form-group">
-<input type="text" name="uname" maxlength="20"  placeholder="Admin user id" class="form-control"/> 
-</div>
-<div class="form-group">
-<input type="password" name="password" maxlength="15" placeholder="Password" class="form-control"/>
-</div>
-<div class="form-group" align="center">
-<input type="submit" name="login" value="Login" class="btn btn-primary" />
-</div>
-</form>
-</div><div class="col-md-3"></div></div>
+        <div class="row">
+          <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <form role="form" method="post" action="head.php?q=index.php">
+                  <div class="form-group">
+                    <input type="text" name="uname" maxlength="20"  placeholder="Admin user id" class="form-control"/> 
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" maxlength="15" placeholder="Password" class="form-control"/>
+                  </div>
+                  <div class="form-group" align="center">
+                    <input type="submit" name="login" value="Login" class="btn btn-primary" />
+                  </div>
+             </form>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
       </div>
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>-->
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div>
+</div>
 
 
 
@@ -341,7 +516,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title"><span style="color:#f4511e;font-family:Montserrat, sans-serif; font-size: 20px !important;letter-spacing: 4px; "><b>LOGIN -TEACHER</b></span></h4>
+        <h4 class="modal-title"><span style="color:#0D0D0D;font-family:Montserrat, sans-serif; font-size: 20px !important;letter-spacing: 4px; "><b>LOGIN -TEACHER</b></span></h4>
       </div>
       <div class="modal-body title1">
 <div class="row">
@@ -375,10 +550,9 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
       <span class="glyphicon glyphicon-globe logo slideanim"></span>
     </div>
     <div class="col-sm-8">
-      <h2>Our Values</h2><br>
-      <h4><strong>MISSION:</strong> Our mission is using one platform for examinations. Reduce paperwork and offering quick and accurate results. </h4><br>
-      <p><strong>VISION:</strong> Our vision of Online Exam System is more popularly helps for our modern age system. It helps us to use the present  technology into examiantion system . It can be helpful for quick and accurate results.Through it helps for only limited sector of people , it is cost efficient , eco friendly and so on.</p>
-    </div>
+      <h2 style = "font-family: poppins-bold">Our Values</h2><br>
+      <h4><strong>MISSION:</strong>  Our mission is using one platform for examinations. Reduce paperwork and offering quick and accurate results. </h4><br>
+</div>
   </div>
 </div>
 
@@ -391,7 +565,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
     <div class="modal-content title1">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title title1"><span style="color:#f4511e;font-family:Montserrat, sans-serif; font-size: 20px !important;letter-spacing: 4px; "><b>LOGIN -USER</b></span></h4>
+        <h4 class="modal-title title1"><span style="color:#0D0D0D;font-family:Montserrat, sans-serif; font-size: 20px !important;letter-spacing: 4px; "><b>LOGIN -USER</b></span></h4>
       </div>
       <div class="modal-body">
         <form class="form-horizontal" action="login.php?q=index.php" method="POST">
@@ -435,7 +609,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
     <div class="modal-content title1">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title title1"><span  style="color:#f4511e;font-family:Montserrat, sans-serif; font-size: 20px !important;letter-spacing: 4px; "><b>SIGN UP</b></span></h4>
+        <h4 class="modal-title title1"><span  style="color:#0D0D0D;font-family:Montserrat, sans-serif; font-size: 20px !important;letter-spacing: 4px; "><b>SIGN UP</b></span></h4>
       </div>
       <div class="modal-body">
        <form class="form-horizontal" name="form" action="sign.php?q=account.php" onSubmit="return validateForm()" method="POST">
@@ -581,16 +755,23 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
   <div class="row text-center slideanim">
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="photo.jpg" alt="PRASANTH" width="400" height="300">
-        <p><strong>PRASANTH SAGAR KOTTAKOTA</strong></p>
-        <p>Nitk 3rd year BTECH</p>
+        <img src="./images/praduman.png" alt="Praduman Thakur" width="100" height="100">
+        <p><strong>Praduman Thakur</strong></p>
+        <p>Nhitm 3rd year computer engineering</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="profilepic.jpg" alt="VIJAY" width="400" height="300">
-        <p><strong>VIJAY KUMAR</strong></p>
-        <p>Nitk 3rd year BTECH</p>
+        <img src="./images/gandhali.png" alt="Gandhali Thakur" width="100" height="100">
+        <p><strong>Gandhali Thakur</strong></p>
+        <p>Nhitm 3rd year computer engineering</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="./images/Shubham.png" alt="Shubham Thorat" width="100" height="100">
+        <p><strong>Shubham Thorat</strong></p>
+        <p>Nhitm 3rd year computer engineering</p>
       </div>
     </div>
     
@@ -638,7 +819,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
       <h4>Online examination System is conducting a test online to measure the knowledge of the participants on a given topic. In the olden days everybody had to gather in a classroom at the same time to take an exam. With online examination students can do the exam online, in their own time and with their own device, regardless where they life. You online need a browser and internet connection. </h4><br>
       <p>Online Examination System (OES) is a platform to hold online examinations. It caters to many requirements of holding online examinations. The system can generate statistical data for records. The system makes it possible to maintain a repository of questions, and then generate papers at a later stage, such that the lecturer has more flexibility over holding online quizzes. Furthermore, it provides the functionality to mark the papers automatically.</p> 
 
-      <br><button class="btn btn-default btn-lg">Get in Touch</button>
+      <br>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-signal logo"></span>
@@ -653,9 +834,9 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
   <div class="row">
     <div class="col-sm-5">
       <p>Contact us and we'll get back to you within 24 hours.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Karnataka, INDIA</p>
-      <p><span class="glyphicon glyphicon-phone"></span> +91 9491849828 </p>
-      <p><span class="glyphicon glyphicon-envelope"></span> kpsagar1999@gmail.com</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Maharashtra, INDIA</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +91 8779616962 </p>
+      <p><span class="glyphicon glyphicon-envelope"></span> shubhamthorat192@nhitm.ac.in</p>
     </div>
     <div class="col-sm-7 slideanim">
 
@@ -696,23 +877,6 @@ else
   </div>
 </div>
 
-
-<!-- Add Google Maps -->
-<div id="googleMap" style="height:400px;width:100%;"></div>
-<script>
-function myMap() {
-var myCenter = new google.maps.LatLng(13.0108439, 74.7921164);
-var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-var marker = new google.maps.Marker({position:myCenter});
-marker.setMap(map);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFj4gNzJYXg7z8mlzs0fHLKvi1MAZYI3c&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
 
 <footer class="container-fluid text-center">
   <a href="#myPage" title="To Top">

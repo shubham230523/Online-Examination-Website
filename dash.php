@@ -92,6 +92,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 <div class="col-md-12">
 <!--home start-->
 
+<!-- showing all the quizs created by that teacher -->
 <?php if(@$_GET['q']==0) {
 
 $result = mysqli_query($con,"SELECT * FROM quiz where email='$email' ORDER BY date DESC") or die('Error');
@@ -124,7 +125,7 @@ echo '</table></div>';
 
 
 
-//score details
+//showing the score details of the students that gave the test
 if(@$_GET['q']== 1) 
 {
   $q=mysqli_query($con,"SELECT distinct q.title,u.name,u.college,h.score,h.date from user u,history h,quiz q where q.email='$email' and q.eid=h.eid and h.email=u.email order by q.eid DESC")or die('Error197');
@@ -188,10 +189,6 @@ echo '</table></div>';}
 
 
 <!--user end-->
-
-<!--feedback start-->
-
-<!--feedback closed-->
 
 <!--feedback reading portion start-->
 <?php if(@$_GET['fid']) {
